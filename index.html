@@ -882,7 +882,39 @@
         header.classList.add('bg-white/60');
         header.classList.remove('bg-white/90', 'shadow-sm');
       }
+    });// --- LÓGICA DEL CARRITO Y RESERVACIONES (ANTIGRAVITY) ---
+
+// 1. Reservaciones
+const botonReservar = document.querySelector('a[href="#ubicacion"]');
+if (botonReservar) {
+  botonReservar.addEventListener('click', (e) => {
+    e.preventDefault();
+    const seccionUbicacion = document.querySelector('#ubicacion') || document.querySelector('footer');
+    if (seccionUbicacion) {
+      seccionUbicacion.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+}
+
+// 2. Carrito de Compras (Agregar Productos)
+let contadorCarrito = 0;
+// Selecciona todos los botones que tengan un icono de más (+) adentro
+const botonesMas = document.querySelectorAll('button');
+
+botonesMas.forEach((boton) => {
+  if (boton.innerHTML.includes('fa-plus') || boton.querySelector('.fa-plus')) {
+    boton.addEventListener('click', (e) => {
+      e.preventDefault();
+      contadorCarrito++;
+      
+      // Busca el nombre del producto en la tarjeta para avisar cuál se agregó
+      const tarjeta = e.target.closest('div');
+      const nombreProducto = tarjeta.querySelector('h3') ? tarjeta.querySelector('h3').innerText : 'Producto';
+      
+      alert(`¡${nombreProducto} agregado al carrito! (Total: ${contadorCarrito})`);
     });
+  }
+});
   </script>
 
 </body>
