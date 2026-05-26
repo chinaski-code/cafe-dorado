@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Dorado — Refugio de Especialidad & Repostería Fina</title>
+  <meta name="description" content="Descubre Café Dorado, un refugio artesanal en el corazón de la ciudad. Café de especialidad de origen único y repostería artesanal premium.">
+  
+  <!-- Google Fonts: Outfit (Moderna y Limpia) y Playfair Display (Elegante y Editorial) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons for premium details -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            chocolate: {
+              DEFAULT: '#2C1B18',
+              50: '#F5ECEB',
+              100: '#EAD7D5',
+              200: '#D5AEA9',
+              300: '#BF857D',
+              400: '#AA5B52',
+              500: '#8E433A',
+              600: '#6E342D',
+              700: '#4E2520',
+              800: '#2E1613',
+              950: '#1C110F', // Color oscuro profundo para el footer
+            },
+            gold: {
+              DEFAULT: '#C5A880',
+              50: '#F7F4F0',
+              100: '#EFEAE1',
+              200: '#DFD4C2',
+              300: '#D0BEA4',
+              400: '#C0A785',
+              500: '#A98D65',
+              600: '#8A704D',
+              700: '#6A5439',
+              800: '#493826',
+              900: '#2A1F13',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Animación del fondo dinámico */
+    @keyframes vapor-flow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .dynamic-vapor-bg {
+      background: linear-gradient(135deg, #fbfaf7, #f3ede2, #eae1d2, #f3ede2, #fbfaf7);
+      background-size: 300% 300%;
+      animation: vapor-flow 25s ease-in-out infinite;
+    }
+
+    /* Formas de vapor flotantes y borrosas en el fondo */
+    .steam-blur-1 {
+      background: radial-gradient(circle, rgba(197, 168, 128, 0.15) 0%, rgba(250, 249, 246, 0) 70%);
+      filter: blur(90px);
+      animation: float-steam-1 20s ease-in-out infinite alternate;
+    }
+
+    .steam-blur-2 {
+      background: radial-gradient(circle, rgba(44, 27, 24, 0.04) 0%, rgba(250, 249, 246, 0) 70%);
+      filter: blur(110px);
+      animation: float-steam-2 30s ease-in-out infinite alternate;
+    }
+
+    @keyframes float-steam-1 {
+      0% { transform: translate(-10%, -5%) scale(1); }
+      100% { transform: translate(15%, 15%) scale(1.2); }
+    }
+
+    @keyframes float-steam-2 {
+      0% { transform: translate(10%, 15%) scale(1.1); }
+      100% { transform: translate(-15%, -10%) scale(0.9); }
+    }
+
+    /* Scrollbar minimalista y estilizada */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #eae1d2;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c5a880;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2C1B18;
+    }
+  </style>
+</head>
+<body class="dynamic-vapor-bg text-chocolate font-sans antialiased selection:bg-gold/30 selection:text-chocolate relative min-h-screen overflow-x-hidden">
+
+  <!-- Elementos de vapor ambiental decorativo en el fondo global -->
+  <div class="absolute top-[10%] left-[-10%] w-[50vw] h-[50vw] steam-blur-1 pointer-events-none z-0"></div>
+  <div class="absolute top-[40%] right-[-10%] w-[60vw] h-[60vw] steam-blur-2 pointer-events-none z-0"></div>
+  <div class="absolute bottom-[10%] left-[5%] w-[45vw] h-[45vw] steam-blur-1 pointer-events-none z-0"></div>
+
+  <!-- HEADER / NAVEGACIÓN PREMIUM -->
+  <header class="sticky top-0 z-50 w-full transition-all duration-300 bg-white/60 backdrop-blur-md border-b border-chocolate/5">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Logotipo -->
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-chocolate text-gold flex items-center justify-center shadow-lg group-hover:bg-gold group-hover:text-chocolate transition-all duration-500">
+          <i class="fa-solid fa-mug-hot text-base"></i>
+        </div>
+        <span class="font-serif text-xl font-bold tracking-wide uppercase text-chocolate group-hover:text-gold transition-colors duration-300">
+          Café <span class="text-gold group-hover:text-chocolate transition-colors duration-300">Dorado</span>
+        </span>
+      </a>
+
+      <!-- Menú de Navegación -->
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm tracking-widest uppercase">
+        <a href="#inicio" class="text-chocolate hover:text-gold transition-colors duration-300 relative group py-2">
+          Inicio
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#esencia" class="text-chocolate hover:text-gold transition-colors duration-300 relative group py-2">
+          Esencia
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#menu" class="text-chocolate hover:text-gold transition-colors duration-300 relative group py-2">
+          Menú
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#ubicacion" class="text-chocolate hover:text-gold transition-colors duration-300 relative group py-2">
+          Ubicación
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </nav>
+
+      <!-- Botón Call-to-Action -->
+      <div class="flex items-center gap-4">
+        <a href="#ubicacion" class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold tracking-widest uppercase border border-gold hover:border-chocolate bg-transparent hover:bg-chocolate hover:text-white rounded-full transition-all duration-500">
+          Reservar Mesa
+        </a>
+        <!-- Menú móvil botón -->
+        <button class="md:hidden w-10 h-10 flex items-center justify-center text-chocolate hover:text-gold transition-colors" id="mobile-menu-btn">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENÚ MÓVIL PANELES -->
+  <div class="hidden fixed inset-0 z-40 bg-chocolate/20 backdrop-blur-md" id="mobile-menu-overlay"></div>
+  <div class="hidden fixed top-20 right-6 left-6 z-40 p-6 bg-white/95 rounded-2xl border border-chocolate/5 shadow-2xl flex-col gap-4 text-center font-medium tracking-wider text-lg transition-all duration-300" id="mobile-menu">
+    <a href="#inicio" class="py-2 hover:text-gold transition-colors" onclick="toggleMobileMenu()">Inicio</a>
+    <a href="#esencia" class="py-2 hover:text-gold transition-colors" onclick="toggleMobileMenu()">Esencia</a>
+    <a href="#menu" class="py-2 hover:text-gold transition-colors" onclick="toggleMobileMenu()">Menú</a>
+    <a href="#ubicacion" class="py-2 hover:text-gold transition-colors" onclick="toggleMobileMenu()">Ubicación</a>
+    <a href="#ubicacion" class="mt-4 px-6 py-3 text-sm font-semibold tracking-widest uppercase border border-gold bg-chocolate text-white rounded-full transition-all" onclick="toggleMobileMenu()">Reservar Mesa</a>
+  </div>
+
+  <main class="relative z-10">
+
+    <!-- HERO SECTION: Entrada de lujo editorial -->
+    <section id="inicio" class="relative min-h-[90vh] flex items-center max-w-7xl mx-auto px-6 py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
+        <!-- Texto Hero -->
+        <div class="lg:col-span-6 space-y-8 text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/15 rounded-full text-xs font-semibold tracking-widest uppercase text-gold">
+            <i class="fa-solid fa-award"></i> Tostado Artesanal de Origen
+          </div>
+          <h1 class="font-serif text-5xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-chocolate leading-tight">
+            Donde el aroma <br>
+            se convierte <br>
+            en <span class="italic font-normal text-gold underline decoration-1 underline-offset-8">oro</span>.
+          </h1>
+          <p class="text-lg text-chocolate/80 max-w-lg leading-relaxed font-light">
+            Un refugio artesanal en el corazón de la ciudad. Seleccionamos cuidadosamente granos de especialidad de fincas éticas para crear una experiencia sensorial inolvidable en cada taza.
+          </p>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+            <a href="#menu" class="px-8 py-4 bg-chocolate text-white hover:bg-gold hover:text-chocolate font-semibold text-sm tracking-widest uppercase rounded-full shadow-lg hover:shadow-xl transition-all duration-500 text-center">
+              Explorar Menú
+            </a>
+            <a href="#esencia" class="px-8 py-4 border border-chocolate/20 text-chocolate hover:border-chocolate bg-white/20 backdrop-blur-sm font-semibold text-sm tracking-widest uppercase rounded-full transition-all duration-500 flex items-center justify-center gap-2">
+              Nuestra Historia <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+          <!-- Atributos en el Hero -->
+          <div class="grid grid-cols-3 gap-6 pt-10 border-t border-chocolate/10">
+            <div>
+              <span class="block text-3xl font-serif font-bold text-gold">88+</span>
+              <span class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold">Taza de Catación</span>
+            </div>
+            <div>
+              <span class="block text-3xl font-serif font-bold text-gold">100%</span>
+              <span class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold">Granos Orgánicos</span>
+            </div>
+            <div>
+              <span class="block text-3xl font-serif font-bold text-gold">Daily</span>
+              <span class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold">Tostado Fresco</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen Hero con detalles de diseño premium -->
+        <div class="lg:col-span-6 relative flex justify-center">
+          <div class="relative w-full max-w-md aspect-[4/5] rounded-[30px] overflow-hidden shadow-2xl border-4 border-white/60">
+            <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=600&q=80" alt="Café Dorado Especialidad" class="w-full h-full object-cover hover:scale-105 transition-transform duration-[2000ms] ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-chocolate/40 via-transparent to-transparent pointer-events-none"></div>
+            <!-- Placa flotante glassmorphism en la imagen -->
+            <div class="absolute bottom-6 left-6 right-6 p-5 bg-white/45 backdrop-blur-md rounded-2xl border border-white/40 shadow-lg text-left">
+              <span class="text-[10px] tracking-widest uppercase text-gold font-bold block mb-1">Recomendación del Barista</span>
+              <h3 class="font-serif text-lg font-bold text-chocolate leading-tight">Filtrado Chemex de Geisha Panameño</h3>
+              <p class="text-xs text-chocolate/80 mt-1 font-light">Perfil frutal, notas sutiles a jazmín y durazno maduro.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION ESENCIA: Un respiro con ritmo visual (py-24) -->
+    <section id="esencia" class="py-24 bg-white/20 backdrop-blur-sm border-y border-chocolate/5">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <!-- Imágenes collage elegante -->
+          <div class="lg:col-span-6 grid grid-cols-2 gap-4 relative">
+            <div class="space-y-4">
+              <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md border border-white/50">
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=400&q=80" alt="Tostado" class="w-full h-full object-cover">
+              </div>
+              <div class="rounded-2xl overflow-hidden aspect-square shadow-md border border-white/50 bg-gold/10 flex items-center justify-center p-8 text-center">
+                <div>
+                  <i class="fa-solid fa-leaf text-3xl text-gold mb-3"></i>
+                  <h4 class="font-serif font-bold text-chocolate text-base">Sustentable</h4>
+                  <p class="text-xs text-chocolate/70 mt-1">Trato justo con caficultores locales.</p>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-4 pt-12">
+              <div class="rounded-2xl overflow-hidden aspect-square shadow-md border border-white/50 bg-chocolate text-gold flex items-center justify-center p-8 text-center">
+                <div>
+                  <i class="fa-solid fa-circle-nodes text-3xl text-gold mb-3"></i>
+                  <h4 class="font-serif font-bold text-white text-base">Trazabilidad</h4>
+                  <p class="text-xs text-gold/80 mt-1">Conoce el origen exacto de tu lote.</p>
+                </div>
+              </div>
+              <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-md border border-white/50">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=400&q=80" alt="Vertido" class="w-full h-full object-cover">
+              </div>
+            </div>
+          </div>
+
+          <!-- Texto descriptivo -->
+          <div class="lg:col-span-6 space-y-6 text-left">
+            <span class="text-xs font-semibold tracking-widest uppercase text-gold block">Nuestra Esencia</span>
+            <h2 class="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-chocolate leading-tight">
+              Artesanos del café, <br>cultivadores de momentos.
+            </h2>
+            <div class="w-16 h-1 bg-gold rounded-full"></div>
+            <p class="text-chocolate/80 font-light leading-relaxed">
+              En Café Dorado concebimos el café como una obra de arte. Creemos que la excelencia no es coincidencia: es el resultado de un viaje meticuloso que involucra el respeto a la tierra, el amor al oficio, y la maestría en el tostado de cada lote exclusivo.
+            </p>
+            <p class="text-chocolate/80 font-light leading-relaxed">
+              Nuestro espacio está diseñado como un santuario urbano, un lugar de luz, calma y texturas nobles donde el aroma del café recién molido invita a la introspección o a la conversación profunda.
+            </p>
+            <div class="pt-6">
+              <div class="flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Fundadora" class="w-14 h-14 rounded-full object-cover border-2 border-gold shadow-md">
+                <div>
+                  <h5 class="font-serif font-bold text-chocolate">Sofía Varela</h5>
+                  <p class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold">Fundadora & Master Roaster</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU SECTION: Tarjetas premium glassmorphism y ritmo visual (py-24) -->
+    <section id="menu" class="py-24">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <span class="text-xs font-semibold tracking-widest uppercase text-gold block mb-2">Carta de Especialidad</span>
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-chocolate">
+          Sabores con Alma
+        </h2>
+        <p class="text-chocolate/70 font-light mt-4 max-w-lg mx-auto">
+          Cada producto es elaborado de forma artesanal y al momento. Explora y personaliza cada bebida a tu gusto preferido.
+        </p>
+        <div class="w-24 h-0.5 bg-gold/50 mx-auto mt-6 mb-16"></div>
+
+        <!-- Menú Grid (9 Tarjetas premium unificadas) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- TARJETA 1: ESPRESSO DE LA CASA (Warmer glass block) -->
+          <div class="group bg-[#fcf9f2]/40 backdrop-blur-md rounded-3xl border border-chocolate/10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out overflow-hidden flex flex-col justify-between">
+            <div>
+              <!-- Imagen del producto con hover zoom -->
+              <div class="relative overflow-hidden aspect-[4/3] w-full border-b border-chocolate/5">
+                <img src="https://images.unsplash.com/photo-151097252790b-af4f902c21a6?auto=format&fit=crop&w=600&q=80" alt="Espresso Doble" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                <span class="absolute top-4 right-4 px-3 py-1 bg-chocolate text-gold font-semibold text-[10px] tracking-widest uppercase rounded-full">
+                  Fuerte
+                </span>
+              </div>
+              <!-- Información -->
+              <div class="p-6 text-left space-y-3">
+                <span class="text-[10px] tracking-widest uppercase text-gold font-bold">Café Clásico</span>
+                <h3 class="font-serif text-xl font-bold text-chocolate leading-tight">Espresso de la Casa</h3>
+                <p class="text-xs text-chocolate/80 leading-relaxed font-light">
+                  Extracción doble y concentrada de nuestro exclusivo blend originario de Oaxaca. Cuerpo denso, acidez cítrica fina y notas de chocolate amargo.
+                </p>
+              </div>
+            </div>
+            
+            <div class="px-6 pb-6 pt-2 text-left space-y-4">
+              <!-- Personalización -->
+              <div class="border-t border-chocolate/10 pt-4">
+                <span class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold mb-2 block">
+                  PERSONALIZA TU BEBIDA:
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Doble</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Descafeinado</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Extra Shot</span>
+                </div>
+              </div>
+              <!-- Precio y acción -->
+              <div class="flex items-center justify-between border-t border-chocolate/5 pt-4">
+                <span class="font-serif text-lg font-bold text-gold">$2.80</span>
+                <button class="w-8 h-8 rounded-full bg-chocolate text-white hover:bg-gold hover:text-chocolate flex items-center justify-center transition-colors shadow-sm">
+                  <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 2: CAPUCHINO DE TERCIOPELO (Cooler glass block) -->
+          <div class="group bg-white/40 backdrop-blur-md rounded-3xl border border-chocolate/10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out overflow-hidden flex flex-col justify-between">
+            <div>
+              <!-- Imagen del producto con hover zoom -->
+              <div class="relative overflow-hidden aspect-[4/3] w-full border-b border-chocolate/5">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80" alt="Capuchino" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                <span class="absolute top-4 right-4 px-3 py-1 bg-gold text-chocolate font-semibold text-[10px] tracking-widest uppercase rounded-full">
+                  Favorito
+                </span>
+              </div>
+              <!-- Información -->
+              <div class="p-6 text-left space-y-3">
+                <span class="text-[10px] tracking-widest uppercase text-gold font-bold">Café con Leche</span>
+                <h3 class="font-serif text-xl font-bold text-chocolate leading-tight">Capuchino de Terciopelo</h3>
+                <p class="text-xs text-chocolate/80 leading-relaxed font-light">
+                  Espresso balanceado cubierto con una densa, sedosa y perfecta capa de microespuma de leche al vapor. Coronada con cacao fino espolvoreado.
+                </p>
+              </div>
+            </div>
+            
+            <div class="px-6 pb-6 pt-2 text-left space-y-4">
+              <!-- Personalización -->
+              <div class="border-t border-chocolate/10 pt-4">
+                <span class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold mb-2 block">
+                  PERSONALIZA TU BEBIDA:
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Entera</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Sin Lactosa</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Almendra</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Canela</span>
+                </div>
+              </div>
+              <!-- Precio y acción -->
+              <div class="flex items-center justify-between border-t border-chocolate/5 pt-4">
+                <span class="font-serif text-lg font-bold text-gold">$3.50</span>
+                <button class="w-8 h-8 rounded-full bg-chocolate text-white hover:bg-gold hover:text-chocolate flex items-center justify-center transition-colors shadow-sm">
+                  <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 3: LATTE FRÍO VAINILLA (Replaced Image URL) -->
+          <div class="group bg-[#fcf9f2]/40 backdrop-blur-md rounded-3xl border border-chocolate/10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out overflow-hidden flex flex-col justify-between">
+            <div>
+              <!-- Imagen del producto con hover zoom -->
+              <div class="relative overflow-hidden aspect-[4/3] w-full border-b border-chocolate/5">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80" alt="Latte Frío Vainilla" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                <span class="absolute top-4 right-4 px-3 py-1 bg-gold text-chocolate font-semibold text-[10px] tracking-widest uppercase rounded-full">
+                  Refrescante
+                </span>
+              </div>
+              <!-- Información -->
+              <div class="p-6 text-left space-y-3">
+                <span class="text-[10px] tracking-widest uppercase text-gold font-bold">Café Helado</span>
+                <h3 class="font-serif text-xl font-bold text-chocolate leading-tight">Latte Frío Vainilla</h3>
+                <p class="text-xs text-chocolate/80 leading-relaxed font-light">
+                  Café espresso mezclado con leche helada y extracto artesanal de vainilla de Papantla. Servido sobre cubos de hielo de café filtrado.
+                </p>
+              </div>
+            </div>
+            
+            <div class="px-6 pb-6 pt-2 text-left space-y-4">
+              <!-- Personalización -->
+              <div class="border-t border-chocolate/10 pt-4">
+                <span class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold mb-2 block">
+                  PERSONALIZA TU BEBIDA:
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Deslactosada</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Avena</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Extra Shot</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Sin Azúcar</span>
+                </div>
+              </div>
+              <!-- Precio y acción -->
+              <div class="flex items-center justify-between border-t border-chocolate/5 pt-4">
+                <span class="font-serif text-lg font-bold text-gold">$4.20</span>
+                <button class="w-8 h-8 rounded-full bg-chocolate text-white hover:bg-gold hover:text-chocolate flex items-center justify-center transition-colors shadow-sm">
+                  <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 4: FLAT WHITE AUSTRALIANO (Cooler glass block) -->
+          <div class="group bg-white/40 backdrop-blur-md rounded-3xl border border-chocolate/10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out overflow-hidden flex flex-col justify-between">
+            <div>
+              <!-- Imagen del producto con hover zoom -->
+              <div class="relative overflow-hidden aspect-[4/3] w-full border-b border-chocolate/5">
+                <img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=600&q=80" alt="Flat White" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                <span class="absolute top-4 right-4 px-3 py-1 bg-gold text-chocolate font-semibold text-[10px] tracking-widest uppercase rounded-full">
+                  Especialidad
+                </span>
+              </div>
+              <!-- Información -->
+              <div class="p-6 text-left space-y-3">
+                <span class="text-[10px] tracking-widest uppercase text-gold font-bold">Café con Leche</span>
+                <h3 class="font-serif text-xl font-bold text-chocolate leading-tight">Flat White Australiano</h3>
+                <p class="text-xs text-chocolate/80 leading-relaxed font-light">
+                  Ristretto doble cargado servido con una microespuma muy fina de leche al vapor. Una proporción perfecta que resalta la fuerza y dulzura del café.
+                </p>
+              </div>
+            </div>
+            
+            <div class="px-6 pb-6 pt-2 text-left space-y-4">
+              <!-- Personalización -->
+              <div class="border-t border-chocolate/10 pt-4">
+                <span class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold mb-2 block">
+                  PERSONALIZA TU BEBIDA:
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Doble Ristretto</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Leche Avena</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Extra Gold Dust</span>
+                </div>
+              </div>
+              <!-- Precio y acción -->
+              <div class="flex items-center justify-between border-t border-chocolate/5 pt-4">
+                <span class="font-serif text-lg font-bold text-gold">$3.80</span>
+                <button class="w-8 h-8 rounded-full bg-chocolate text-white hover:bg-gold hover:text-chocolate flex items-center justify-center transition-colors shadow-sm">
+                  <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 5: FILTRADO V60 DE ORIGEN (Warmer glass block) -->
+          <div class="group bg-[#fcf9f2]/40 backdrop-blur-md rounded-3xl border border-chocolate/10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out overflow-hidden flex flex-col justify-between">
+            <div>
+              <!-- Imagen del producto con hover zoom -->
+              <div class="relative overflow-hidden aspect-[4/3] w-full border-b border-chocolate/5">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80" alt="Pour Over V60" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                <span class="absolute top-4 right-4 px-3 py-1 bg-chocolate text-gold font-semibold text-[10px] tracking-widest uppercase rounded-full">
+                  Exclusivo
+                </span>
+              </div>
+              <!-- Información -->
+              <div class="p-6 text-left space-y-3">
+                <span class="text-[10px] tracking-widest uppercase text-gold font-bold">Filtrados</span>
+                <h3 class="font-serif text-xl font-bold text-chocolate leading-tight">Filtrado V60 de Origen</h3>
+                <p class="text-xs text-chocolate/80 leading-relaxed font-light">
+                  Café infusionado por goteo lento, destacando las notas frutales y florales más puras del grano de altura de Chiapas. Limpio y aromático.
+                </p>
+              </div>
+            </div>
+            
+            <div class="px-6 pb-6 pt-2 text-left space-y-4">
+              <!-- Personalización -->
+              <div class="border-t border-chocolate/10 pt-4">
+                <span class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold mb-2 block">
+                  PERSONALIZA TU BEBIDA:
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Chiapas</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Geisha (+$1.50)</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Temp: Frío / Caliente</span>
+                </div>
+              </div>
+              <!-- Precio y acción -->
+              <div class="flex items-center justify-between border-t border-chocolate/5 pt-4">
+                <span class="font-serif text-lg font-bold text-gold">$4.00</span>
+                <button class="w-8 h-8 rounded-full bg-chocolate text-white hover:bg-gold hover:text-chocolate flex items-center justify-center transition-colors shadow-sm">
+                  <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 6: MOCA DE CHOCOLATE OSCURO (Cooler glass block) -->
+          <div class="group bg-white/40 backdrop-blur-md rounded-3xl border border-chocolate/10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out overflow-hidden flex flex-col justify-between">
+            <div>
+              <!-- Imagen del producto con hover zoom -->
+              <div class="relative overflow-hidden aspect-[4/3] w-full border-b border-chocolate/5">
+                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80" alt="Moca de Chocolate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                <span class="absolute top-4 right-4 px-3 py-1 bg-gold text-chocolate font-semibold text-[10px] tracking-widest uppercase rounded-full">
+                  Dulce
+                </span>
+              </div>
+              <!-- Información -->
+              <div class="p-6 text-left space-y-3">
+                <span class="text-[10px] tracking-widest uppercase text-gold font-bold">Café de Especialidad</span>
+                <h3 class="font-serif text-xl font-bold text-chocolate leading-tight">Moca de Chocolate Oscuro</h3>
+                <p class="text-xs text-chocolate/80 leading-relaxed font-light">
+                  Una fusión perfecta de espresso intenso de la casa con jarabe artesanal de cacao de Tabasco al 70% y leche cremosa al vapor.
+                </p>
+              </div>
+            </div>
+            
+            <div class="px-6 pb-6 pt-2 text-left space-y-4">
+              <!-- Personalización -->
+              <div class="border-t border-chocolate/10 pt-4">
+                <span class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold mb-2 block">
+                  PERSONALIZA TU BEBIDA:
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Cacao 70%</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Leche Coco</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Crema Batida</span>
+                </div>
+              </div>
+              <!-- Precio y acción -->
+              <div class="flex items-center justify-between border-t border-chocolate/5 pt-4">
+                <span class="font-serif text-lg font-bold text-gold">$4.50</span>
+                <button class="w-8 h-8 rounded-full bg-chocolate text-white hover:bg-gold hover:text-chocolate flex items-center justify-center transition-colors shadow-sm">
+                  <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 7: CROISSANT DE ALMENDRAS (Replaced Image URL) -->
+          <div class="group bg-[#fcf9f2]/40 backdrop-blur-md rounded-3xl border border-chocolate/10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out overflow-hidden flex flex-col justify-between">
+            <div>
+              <!-- Imagen del producto con hover zoom -->
+              <div class="relative overflow-hidden aspect-[4/3] w-full border-b border-chocolate/5">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" alt="Croissant de Almendras" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                <span class="absolute top-4 right-4 px-3 py-1 bg-gold text-chocolate font-semibold text-[10px] tracking-widest uppercase rounded-full">
+                  Clásico Francés
+                </span>
+              </div>
+              <!-- Información -->
+              <div class="p-6 text-left space-y-3">
+                <span class="text-[10px] tracking-widest uppercase text-gold font-bold">Repostería Fina</span>
+                <h3 class="font-serif text-xl font-bold text-chocolate leading-tight">Croissant de Almendras</h3>
+                <p class="text-xs text-chocolate/80 leading-relaxed font-light">
+                  Masa de hojaldre crujiente 100% de mantequilla purificada, rellena de una suave y aromática crema frangipane y espolvoreada con almendras fileteadas.
+                </p>
+              </div>
+            </div>
+            
+            <div class="px-6 pb-6 pt-2 text-left space-y-4">
+              <!-- Personalización -->
+              <div class="border-t border-chocolate/10 pt-4">
+                <span class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold mb-2 block">
+                  PERSONALIZA TU BEBIDA:
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Tibio</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Natural</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Extra Almendras</span>
+                </div>
+              </div>
+              <!-- Precio y acción -->
+              <div class="flex items-center justify-between border-t border-chocolate/5 pt-4">
+                <span class="font-serif text-lg font-bold text-gold">$3.90</span>
+                <button class="w-8 h-8 rounded-full bg-chocolate text-white hover:bg-gold hover:text-chocolate flex items-center justify-center transition-colors shadow-sm">
+                  <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 8: TARTA RÚSTICA DE FRAMBUESA (Cooler glass block) -->
+          <div class="group bg-white/40 backdrop-blur-md rounded-3xl border border-chocolate/10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out overflow-hidden flex flex-col justify-between">
+            <div>
+              <!-- Imagen del producto con hover zoom -->
+              <div class="relative overflow-hidden aspect-[4/3] w-full border-b border-chocolate/5">
+                <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=600&q=80" alt="Tarta Rústica de Frambuesa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                <span class="absolute top-4 right-4 px-3 py-1 bg-gold text-chocolate font-semibold text-[10px] tracking-widest uppercase rounded-full">
+                  Artesanal
+                </span>
+              </div>
+              <!-- Información -->
+              <div class="p-6 text-left space-y-3">
+                <span class="text-[10px] tracking-widest uppercase text-gold font-bold">Pastelería Premium</span>
+                <h3 class="font-serif text-xl font-bold text-chocolate leading-tight">Tarta Rústica de Frambuesa</h3>
+                <p class="text-xs text-chocolate/80 leading-relaxed font-light">
+                  Masa quebrada crujiente rellena con frambuesas silvestres maceradas y una sutil infusión de flor de saúco, horneada hasta dorar perfectamente.
+                </p>
+              </div>
+            </div>
+            
+            <div class="px-6 pb-6 pt-2 text-left space-y-4">
+              <!-- Personalización -->
+              <div class="border-t border-chocolate/10 pt-4">
+                <span class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold mb-2 block">
+                  PERSONALIZA TU BEBIDA:
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Acompañada Helado</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Sola</span>
+                </div>
+              </div>
+              <!-- Precio y acción -->
+              <div class="flex items-center justify-between border-t border-chocolate/5 pt-4">
+                <span class="font-serif text-lg font-bold text-gold">$4.20</span>
+                <button class="w-8 h-8 rounded-full bg-chocolate text-white hover:bg-gold hover:text-chocolate flex items-center justify-center transition-colors shadow-sm">
+                  <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 9: CHEESECAKE DE CARAMELO SALADO (Warmer glass block) -->
+          <div class="group bg-[#fcf9f2]/40 backdrop-blur-md rounded-3xl border border-chocolate/10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out overflow-hidden flex flex-col justify-between">
+            <div>
+              <!-- Imagen del producto con hover zoom -->
+              <div class="relative overflow-hidden aspect-[4/3] w-full border-b border-chocolate/5">
+                <img src="https://images.unsplash.com/photo-1524351199679-46cddf530c04?auto=format&fit=crop&w=600&q=80" alt="Cheesecake Caramelo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                <span class="absolute top-4 right-4 px-3 py-1 bg-chocolate text-gold font-semibold text-[10px] tracking-widest uppercase rounded-full">
+                  Exquisito
+                </span>
+              </div>
+              <!-- Información -->
+              <div class="p-6 text-left space-y-3">
+                <span class="text-[10px] tracking-widest uppercase text-gold font-bold">Pastelería Premium</span>
+                <h3 class="font-serif text-xl font-bold text-chocolate leading-tight">Cheesecake de Caramelo</h3>
+                <p class="text-xs text-chocolate/80 leading-relaxed font-light">
+                  Base de galleta artesanal de canela y jengibre, con un relleno ultra sedoso de queso crema selecto y cubierto con caramelo salado a la mantequilla.
+                </p>
+              </div>
+            </div>
+            
+            <div class="px-6 pb-6 pt-2 text-left space-y-4">
+              <!-- Personalización -->
+              <div class="border-t border-chocolate/10 pt-4">
+                <span class="text-[10px] tracking-widest uppercase text-chocolate/60 font-semibold mb-2 block">
+                  PERSONALIZA TU BEBIDA:
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Extra Caramelo</span>
+                  <span class="px-2 py-0.5 text-[9px] font-semibold tracking-wider bg-chocolate/5 text-chocolate/80 rounded-md hover:bg-gold/20 hover:text-chocolate transition-colors cursor-pointer uppercase">Natural</span>
+                </div>
+              </div>
+              <!-- Precio y acción -->
+              <div class="flex items-center justify-between border-t border-chocolate/5 pt-4">
+                <span class="font-serif text-lg font-bold text-gold">$4.80</span>
+                <button class="w-8 h-8 rounded-full bg-chocolate text-white hover:bg-gold hover:text-chocolate flex items-center justify-center transition-colors shadow-sm">
+                  <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION UBICACIÓN: Ritmo visual (py-24), map & horario elegante -->
+    <section id="ubicacion" class="py-24 bg-white/20 backdrop-blur-sm border-t border-chocolate/5">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          <!-- Datos e información de horarios -->
+          <div class="lg:col-span-5 space-y-8 text-left">
+            <span class="text-xs font-semibold tracking-widest uppercase text-gold block">Visítanos</span>
+            <h2 class="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-chocolate leading-tight">
+              Un santuario en la ciudad.
+            </h2>
+            <div class="w-16 h-1 bg-gold rounded-full"></div>
+            
+            <p class="text-chocolate/80 font-light leading-relaxed">
+              Encuentra un espacio de desconexión y luz natural. Te esperamos para disfrutar de las mejores extracciones en un ambiente diseñado para inspirarte.
+            </p>
+
+            <div class="space-y-6 pt-4 border-t border-chocolate/10">
+              <!-- Dirección -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center flex-shrink-0">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-chocolate uppercase tracking-wider text-xs">Nuestra Dirección</h4>
+                  <p class="text-sm text-chocolate/80 mt-1 font-light">Paseo de la Reforma 450, Juárez, Ciudad de México</p>
+                </div>
+              </div>
+              <!-- Horarios -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center flex-shrink-0">
+                  <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-chocolate uppercase tracking-wider text-xs">Nuestros Horarios</h4>
+                  <p class="text-sm text-chocolate/80 mt-1 font-light">
+                    Lunes a Viernes — 07:00 a 21:00 <br>
+                    Sábados y Domingos — 08:00 a 22:00
+                  </p>
+                </div>
+              </div>
+              <!-- Contacto -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center flex-shrink-0">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-chocolate uppercase tracking-wider text-xs">Línea Directa</h4>
+                  <p class="text-sm text-chocolate/80 mt-1 font-light">+52 55 1234 5678 — info@cafedorado.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mapa Premium visual conceptual -->
+          <div class="lg:col-span-7">
+            <div class="relative w-full aspect-[16/10] bg-[#efeae1] rounded-3xl overflow-hidden border border-chocolate/10 shadow-lg flex items-center justify-center p-6 group">
+              <!-- Elemento decorativo visual del mapa en tonos dorados/chocolate -->
+              <div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#2c1b18_1px,transparent_1px)] [background-size:16px_16px]"></div>
+              
+              <!-- Círculos concéntricos de ubicación estilizados -->
+              <div class="absolute w-40 h-40 rounded-full border border-gold/40 animate-ping duration-10000 pointer-events-none"></div>
+              <div class="absolute w-24 h-24 rounded-full border border-gold/60 pointer-events-none"></div>
+              
+              <!-- Pin dorado de ubicación -->
+              <div class="relative flex flex-col items-center z-10">
+                <div class="w-12 h-12 rounded-full bg-chocolate text-gold flex items-center justify-center shadow-xl border-2 border-gold scale-110 group-hover:scale-125 transition-transform duration-500 cursor-pointer">
+                  <i class="fa-solid fa-mug-hot text-lg"></i>
+                </div>
+                <div class="px-4 py-2 bg-white/90 backdrop-blur-sm rounded-lg border border-chocolate/10 shadow-lg text-center mt-3 scale-95 group-hover:scale-100 transition-transform duration-500">
+                  <span class="font-serif font-bold text-xs text-chocolate block">Café Dorado</span>
+                  <span class="text-[9px] text-gold uppercase tracking-wider font-semibold">Tostaduría de Especialidad</span>
+                </div>
+              </div>
+              
+              <!-- Botón flotante para abrir en Google Maps -->
+              <a href="https://maps.google.com" target="_blank" class="absolute bottom-4 right-4 px-4 py-2 bg-white/70 backdrop-blur-md hover:bg-chocolate hover:text-white border border-chocolate/10 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-2">
+                <i class="fa-solid fa-map"></i> Ver Mapa Completo
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER PREMIUM DE AGENCIA: Colores profundos de chocolate -->
+  <footer class="bg-chocolate-950 text-[#efeae1] py-16 border-t border-chocolate-800 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-chocolate-800 pb-12">
+      <!-- Info del Café -->
+      <div class="md:col-span-5 space-y-6 text-left">
+        <a href="#inicio" class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-gold text-chocolate flex items-center justify-center shadow-md">
+            <i class="fa-solid fa-mug-hot text-sm"></i>
+          </div>
+          <span class="font-serif text-lg font-bold tracking-wide uppercase text-white">
+            Café <span class="text-gold">Dorado</span>
+          </span>
+        </a>
+        <p class="text-xs text-gold-100/70 font-light max-w-sm leading-relaxed">
+          Creamos experiencias cafeteras sublimes a través del tostado artesanal de granos selectos y un espacio hospitalario de paz y diseño refinado en la metrópoli.
+        </p>
+        <!-- Redes Sociales -->
+        <div class="flex items-center gap-4 pt-2">
+          <a href="#" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center transition-all duration-300">
+            <i class="fa-brands fa-instagram text-sm"></i>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center transition-all duration-300">
+            <i class="fa-brands fa-facebook-f text-sm"></i>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center transition-all duration-300">
+            <i class="fa-brands fa-pinterest-p text-sm"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Enlaces Rápidos -->
+      <div class="md:col-span-3 space-y-4 text-left">
+        <h4 class="text-xs font-semibold tracking-widest uppercase text-gold font-bold">Navegación</h4>
+        <ul class="space-y-2 text-xs font-medium uppercase tracking-wider text-gold-100/70">
+          <li><a href="#inicio" class="hover:text-gold transition-colors">Inicio</a></li>
+          <li><a href="#esencia" class="hover:text-gold transition-colors">Esencia</a></li>
+          <li><a href="#menu" class="hover:text-gold transition-colors">Carta Selección</a></li>
+          <li><a href="#ubicacion" class="hover:text-gold transition-colors">Ubicación</a></li>
+        </ul>
+      </div>
+
+      <!-- Boletín Suscripción Premium -->
+      <div class="md:col-span-4 space-y-4 text-left">
+        <h4 class="text-xs font-semibold tracking-widest uppercase text-gold font-bold">El Club Dorado</h4>
+        <p class="text-xs text-gold-100/70 font-light">
+          Suscríbete para recibir invitaciones a catas privadas, micro-lotes exclusivos de tostado y noticias especiales de nuestro barista.
+        </p>
+        <form class="flex gap-2 pt-2" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte al Club Dorado!');">
+          <input type="email" placeholder="Tu correo electrónico" required class="flex-grow px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs placeholder-gold-100/40 text-white focus:outline-none focus:border-gold transition-all duration-300">
+          <button type="submit" class="px-5 py-2.5 bg-gold hover:bg-white text-chocolate hover:text-chocolate font-bold text-xs tracking-wider uppercase rounded-full transition-all duration-300">
+            Unirse
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="max-w-7xl mx-auto px-6 pt-8 flex flex-col sm:flex-row items-center justify-between text-[10px] tracking-widest uppercase text-gold-100/40 font-semibold">
+      <span>&copy; 2026 Café Dorado. Todos los derechos reservados.</span>
+      <span class="mt-2 sm:mt-0 flex gap-4">
+        <a href="#" class="hover:text-gold transition-colors">Aviso de Privacidad</a>
+        <span>&bull;</span>
+        <a href="#" class="hover:text-gold transition-colors">Términos del Servicio</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT: Interacciones Dinámicas Sutiles -->
+  <script>
+    // Toggle Menú Móvil
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    function toggleMobileMenu() {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      if (isOpen) {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        mobileMenuOverlay.classList.add('hidden');
+      } else {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+        mobileMenuOverlay.classList.remove('hidden');
+      }
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+
+    // Header scroll background opacity shift
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('bg-white/90', 'shadow-sm');
+        header.classList.remove('bg-white/60');
+      } else {
+        header.classList.add('bg-white/60');
+        header.classList.remove('bg-white/90', 'shadow-sm');
+      }
+    });
+  </script>
+
+</body>
+</html>
